@@ -1,1 +1,15 @@
-<p>order-list works!</p>
+<table class="table">
+
+  <tbody>
+      <tr *ngFor="let order of  coffeeOrderList">
+        <td>{{ order.payload.doc.data().orderNumber }}</td>
+        <td>{{ order.payload.doc.data().customerName }}</td>
+        <td><span
+             *ngFor="let coffee of order.payload.doc.data().coffeeOrder">
+            {{ coffee }}
+           </span>
+        </td>
+     </tr>
+     </tbody>
+
+</table>

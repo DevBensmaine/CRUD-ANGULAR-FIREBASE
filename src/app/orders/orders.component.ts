@@ -38,16 +38,13 @@ export class OrdersComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSubmit(){
-    this.form.value.coffeeOrder= this.coffeeOrder;
-    let data = this.form.value
-
-    console.log(data)
-
-   this.ordersService.createCoffeeOrder(data)
-       .then(res => {
-           /*do something here....
+  onSubmit() {
+    this.form.value.coffeeOrder = this.coffeeOrder;
+    let data = this.form.value;
+    console.log(data);
+    this.ordersService.createCoffeeOrder(data).then((res) => {
+      /*do something here....
            maybe clear the form or give a success message*/
-       });
+    });
   }
 }

@@ -18,4 +18,8 @@ export class OrdersService {
         );
     });
   }
+
+  getCoffeeOrders() {
+    return this.firestore.collection('coffeeOrders').snapshotChanges();
+  }
 }
