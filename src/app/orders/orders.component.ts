@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { OrdersService } from "../shared/orders.service";
+import { OrdersService } from '../shared/orders.service';
 
 @Component({
   selector: 'app-orders',
@@ -8,12 +8,37 @@ import { OrdersService } from "../shared/orders.service";
   styleUrls: ['./orders.component.css'],
 })
 export class OrdersComponent implements OnInit {
-  constructor() {}
   form = new FormGroup({
     customerName: new FormControl(''),
     orderNumber: new FormControl(''),
     coffeeOrder: new FormControl(''),
     completed: new FormControl(false),
   });
+  coffees = [
+    'Americano',
+    'Flat White',
+    'Cappuccino',
+    'Latte',
+    'Espresso',
+    'Machiato',
+    'Mocha',
+    'Hot Chocolate',
+    'Tea',
+  ];
+
+  coffeeOrder = [];
+
+  constructor(private ordersService: OrdersService) {}
+
+  addCoffee = (coffee) => this.coffeeOrder.push(coffee);
+  removeCoffee = (coffee) => {
+    let index = this.coffeeOrder.indexOf(coffee);
+    if (index > -1) this.coffeeOrder.splice(index, 1);
+  };
+
   ngOnInit(): void {}
+
+  onSubmit(){
+
+  }
 }
