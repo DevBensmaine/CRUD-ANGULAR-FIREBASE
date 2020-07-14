@@ -27,4 +27,11 @@ export class OrdersService {
     return this.firestore.collection("coffeeOrders").doc(data.payload.doc.id).set({ completed: true }, { merge: true })
  }
 
+ deleteCoffeeOrder(data) {
+  return this.firestore
+      .collection("coffeeOrders")
+      .doc(data.payload.doc.id)
+      .delete();
+}
+
 }

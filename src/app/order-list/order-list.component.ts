@@ -21,6 +21,8 @@ export class OrderListComponent implements OnInit {
     this.ordersService.updateCoffeeOrder(data);
   }
 
+  deleteOrder = data => this.ordersService.deleteCoffeeOrder(data);
+
   ngOnInit(): void {
     this.getCoffeeOrders();
   }
